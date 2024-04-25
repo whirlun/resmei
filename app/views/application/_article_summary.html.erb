@@ -1,0 +1,13 @@
+<div class="col-start-2 col-span-4 flex flex-col justify-start items-start my-2">
+  <a class="text-4xl text-sky-500 px-1" href = <%= url_for controller: "article", action: "show", id: a.id %>><%= a.title %></a>
+  <hr class="w-48 h-[1px] inset-0 bg-gray-500 border-0 rounded">
+  <span class="py-2 flex flex-row justify-start items-center">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+    <span class="px-2"><%=a.updated_at%></span>
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+    <% for tag in a.tags %>
+        <span class="px-1"><%= tag.name %></span>
+    <% end %>
+</span>
+  <p><%= sanitize(a.body.to_html, tags: [])[..500] %></p>
+</div>

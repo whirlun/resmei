@@ -1,0 +1,17 @@
+<form
+  id="form"
+  class="grid grid-cols-12 my-4"
+  action="<%= url_for controller: 'admin', action: @action, only_path: true%>"
+  method="post"
+>
+  <input name="title" class="input input-bordered col-start-2 col-span-10 my-4" <% if @init_title %> value = "<%= @init_title %>" <% else %> placeholder = "Title" <% end %>>
+  <markdown-editor class="col-start-2 col-span-10" initValue="<%= @init_value %>"></markdown-editor>
+  <tag-input name="tag-input" class="col-start-2 col-span-4 my-4"></tag-input>
+  <input
+    type="submit"
+    class="btn btn-primary col-start-11 col-span-1 my-4"
+    value="Submit"
+  />
+  <input type="hidden" name="editor-content" id="editor-content" />
+  <input type="hidden" name="tag-input" id="tag-input" />
+</form>

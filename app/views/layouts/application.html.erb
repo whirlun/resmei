@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Resmei</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css" %>
+
+    <%= stylesheet_link_tag "application" %>
+    <%= javascript_importmap_tags %>
+    <% unless @admin %>
+      <%= javascript_include_tag "index" %>
+    <% else %>
+      <%= javascript_include_tag "index" %>
+      <%= javascript_include_tag "admin" %>
+      <%= stylesheet_link_tag "admin" %>
+    <% end %>
+  </head>
+
+  <body>
+    <%= render partial: "layouts/header" %>
+    <% if flash[:notice] %>
+    <div role="alert" class="alert alert-info">
+      <span><%= notice %></span>
+    </div>
+    <% end %>
+    <% if flash[:alert] %>
+    <div role="alert" class="alert alert-error">
+      <span><%= alert %></span>
+    </div>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>

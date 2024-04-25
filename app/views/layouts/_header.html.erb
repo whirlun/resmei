@@ -1,0 +1,35 @@
+<header
+  <% unless @admin %>
+  class="flex flex-row relative h-[50vh] w-full justify-center items-center flex-wrap before:content-[''] before:bg-cover before:bg-[url('/background.png')] before:opacity-80 before:brightness-50 before:absolute before:inset-0"
+  <% else %>
+  class="flex flex-row relative h-[10vh] w-full justify-center items-center flex-wrap"
+  <% end %>
+>
+  <div class="fixed top-0 navbar bg-transparent">
+    <div class="navbar-end lg:hidden w-full">
+      <div class="dropdown dropdown-left">
+        <div tabindex="0" role="button" class="btn btn-ghost">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </div>
+        <ul
+          tabindex="0"
+          class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+        >
+          <li><a href="/">Home</a></li>
+          <li><a>About</a></li>
+          <li><a>Tags</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="navbar-end hidden lg:flex w-full">
+      <ul class="menu menu-horizontal px-1 <%= @admin ? 'text-black' : 'text-white' %>">
+        <li><a href="/">Home</a></li>
+        <li><a>About</a></li>
+        <li><a>Tags</a></li>
+      </ul>
+    </div>
+  </div>
+  <% unless @admin %>
+    <h1 class="relative text-center text-white text-6xl"><%= @greeting %></h1>
+  <% end %>
+</header>

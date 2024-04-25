@@ -1,0 +1,5 @@
+<div class="grid grid-cols-6 gap-4 my-2">
+        <% @articles.each do |a| %>
+                <%= render partial: "article_summary", locals: {a: a}%>
+        <% end %>
+</div>
